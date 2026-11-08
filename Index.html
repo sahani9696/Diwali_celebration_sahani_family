@@ -1,0 +1,129 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diwali Celebration 🪔</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  min-height:100vh;
+  background:radial-gradient(circle at top,#39205d,#10091e 65%,#080510);
+  color:#fff;
+  font-family:Georgia,serif;
+  text-align:center;
+  overflow-x:hidden;
+}
+.container{padding:35px 18px;position:relative;z-index:2}
+.tag{color:#ffd477;letter-spacing:4px;font-size:12px}
+h1{
+  color:#ffdc83;
+  font-size:clamp(38px,10vw,58px);
+  margin:22px 0;
+  text-shadow:0 0 20px #ff9d32;
+}
+.diya{
+  font-size:85px;
+  margin:20px;
+  animation:glow 1.5s infinite alternate;
+}
+@keyframes glow{
+  from{filter:drop-shadow(0 0 8px orange)}
+  to{filter:drop-shadow(0 0 28px gold)}
+}
+.subtitle{font-size:19px;color:#ffe6bc;line-height:1.7}
+.card{
+  max-width:440px;margin:30px auto;padding:25px 18px;
+  border:1px solid #b78a48;border-radius:20px;
+  background:#ffffff0d;box-shadow:0 0 25px #ffb43b20;
+}
+input{
+  width:100%;padding:14px;border-radius:10px;
+  border:1px solid #d9a84f;background:#1b102c;
+  color:white;font-size:16px;margin:18px 0;
+}
+button{
+  padding:14px 23px;border:0;border-radius:30px;
+  background:linear-gradient(90deg,#ffb52e,#ffe69a);
+  color:#35152a;font-size:16px;font-weight:bold;
+  cursor:pointer;margin:8px;
+}
+#wish{color:#ffe6a5;font-size:20px;line-height:1.7;margin-top:20px}
+.lights{font-size:28px;letter-spacing:8px;margin:20px}
+footer{color:#bba8ca;font-size:13px;margin-top:45px}
+.spark{
+  position:fixed;top:-20px;pointer-events:none;
+  animation:fall linear forwards;z-index:1;
+}
+@keyframes fall{
+  to{transform:translateY(110vh) rotate(360deg);opacity:0}
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+  <div class="tag">✨ FESTIVAL OF LIGHTS ✨</div>
+  <div class="diya">🪔</div>
+
+  <h1>Happy Diwali!</h1>
+
+  <p class="subtitle">
+    May your life shine brighter<br>
+    than a thousand beautiful diyas.
+  </p>
+
+  <div class="lights">✨ 🪔 ✨</div>
+
+  <div class="card">
+    <h2 style="color:#ffdc83">A Special Wish For You ❤️</h2>
+
+    <input id="name" placeholder="Enter your name..." maxlength="30">
+
+    <button onclick="showWish()">Open Your Surprise 💌</button>
+
+    <div id="wish"></div>
+  </div>
+
+  <p class="subtitle">
+    Spread happiness, share love<br>
+    and make beautiful memories.
+  </p>
+
+  <div class="diya">🎆</div>
+
+  <footer>
+    Made with ❤️ for Diwali Celebration<br>
+    © 2026 Diwali Celebration
+  </footer>
+</div>
+
+<script>
+function showWish(){
+  let name=document.getElementById("name").value.trim();
+  if(!name) name="Dear Friend";
+
+  document.getElementById("wish").innerHTML=
+  "Dear "+name+", ❤️<br><br>"+
+  "May this Diwali bring endless happiness, "+
+  peace, success and beautiful moments into your life. "+
+  "Keep shining like a diya! 🪔<br><br>"+
+  "Wishing you and your family a very Happy Diwali! 🎆";
+}
+
+function createSpark(){
+  const s=document.createElement("div");
+  s.className="spark";
+  s.textContent=["✨","⭐","🪔","🎇"][Math.floor(Math.random()*4)];
+  s.style.left=Math.random()*100+"vw";
+  s.style.fontSize=(15+Math.random()*20)+"px";
+  s.style.animationDuration=(3+Math.random()*4)+"s";
+  document.body.appendChild(s);
+  setTimeout(()=>s.remove(),7000);
+}
+setInterval(createSpark,350);
+</script>
+</body>
+</html>
